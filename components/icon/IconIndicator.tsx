@@ -3,5 +3,9 @@ interface IconIndicatorProps {
 }
 
 export default function IconIndicator({ value }: IconIndicatorProps) {
-  return <span className="badge badge-sm indicator-item">{value}</span>;
+  return (
+    <span className="badge-secondary badge badge-sm  indicator-item">
+      {value}
+    </span>
+  );
 }
