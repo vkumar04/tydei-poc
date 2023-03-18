@@ -21,7 +21,7 @@ export default function Home() {
         <button className="btn-ghost btn-circle btn">
           <ArrowPathIcon className="h-6 w-6" />
         </button>
-        <p className="mt-2 flex items-center">
+        <p className="flex items-center">
           updated as of <ClockIcon className="h-4 w-6" />
           <span className="font-semibold">6 Hour(s) ago</span>
         </p>
