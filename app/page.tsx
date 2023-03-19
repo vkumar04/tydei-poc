@@ -8,16 +8,15 @@ import {
   CalendarDaysIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
-import { homepageData } from "./consts/homepageData";
 
-// async function getData() {
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/home`);
-//   return res.json();
-// }
+async function getData() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/home`);
+  return res.json();
+}
 
 export default async function Home() {
-  // const homeData = await getData();
-  // const data = homeData.data;
+  const homeData = await getData();
+  const data = homeData.data;
   return (
     <div className="grid max-w-full grid-cols-3 gap-4 p-4">
       <div className="col-span-3">
@@ -39,7 +38,7 @@ export default async function Home() {
           <span className="font-semibold">6 Hour(s) ago</span>
         </p>
       </div>
-      {homepageData.map((item: any, i: number) => (
+      {data.map((item: any, i: number) => (
         <Card
           key={i}
           cardBody={
@@ -52,6 +51,8 @@ export default async function Home() {
           }
         />
       ))}
+
+      <pre>{process.env.NEXT_PUBLIC_API_URL}</pre>
     </div>
   );
 }
