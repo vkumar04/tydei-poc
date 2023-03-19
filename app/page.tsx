@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/home");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/home`);
   return res.json();
 }
 
