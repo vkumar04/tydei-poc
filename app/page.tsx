@@ -8,6 +8,7 @@ import {
   CalendarDaysIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
+import { homepageData } from "./consts/homepageData";
 
 async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/home`);
@@ -38,7 +39,7 @@ export default async function Home() {
           <span className="font-semibold">6 Hour(s) ago</span>
         </p>
       </div>
-      {data.map((item: any, i: number) => (
+      {homepageData.map((item: any, i: number) => (
         <Card
           key={i}
           cardBody={
