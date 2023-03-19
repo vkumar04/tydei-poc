@@ -1,10 +1,22 @@
 import Card from "@/components/card/Card";
+import CardActions from "@/components/card/CardActions";
+import CardContent from "@/components/card/CardContent";
+import CardMetric from "@/components/card/CardMetric";
+import CardTitle from "@/components/card/CardTitle";
 import {
   ArrowPathIcon,
   CalendarDaysIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
-export default function Home() {
+
+async function getData() {
+  const res = await fetch("http://localhost:3000/api/home");
+  return res.json();
+}
+
+export default async function Home() {
+  const homeData = await getData();
+  const data = homeData.data;
   return (
     <div className="grid max-w-full grid-cols-3 gap-4 p-4">
       <div className="col-span-3">
@@ -26,12 +38,18 @@ export default function Home() {
           <span className="font-semibold">6 Hour(s) ago</span>
         </p>
       </div>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {data.map((item: any) => (
+        <Card
+          cardBody={
+            <div className="card-body">
+              <CardTitle title={item.title} />
+              <CardContent content={item.content} />
+              <CardMetric title={item.metric.title} value={item.metric.value} />
+              <CardActions data={item.subValues} />
+            </div>
+          }
+        />
+      ))}
     </div>
   );
 }
