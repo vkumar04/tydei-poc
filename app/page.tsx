@@ -38,8 +38,9 @@ export default async function Home() {
           <span className="font-semibold">6 Hour(s) ago</span>
         </p>
       </div>
-      {data.map((item: any) => (
+      {data.map((item: any, i: number) => (
         <Card
+          key={i}
           cardBody={
             <div className="card-body">
               <CardTitle title={item.title} />
