@@ -10,13 +10,13 @@ import {
 } from "@heroicons/react/24/solid";
 
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/home`);
+  const res = await fetch(`${process.env.API_URL}/api/home`);
   return res.json();
 }
 
 export default async function Home() {
-  const homeData = await getData();
-  const data = homeData.data;
+  const data = await getData();
+  const { homepageData } = data;
   return (
     <div className="grid max-w-full grid-cols-3 gap-4 p-4">
       <div className="col-span-3">
@@ -38,7 +38,7 @@ export default async function Home() {
           <span className="font-semibold">6 Hour(s) ago</span>
         </p>
       </div>
-      {data.map((item: any, i: number) => (
+      {homepageData.map((item: any, i: number) => (
         <Card
           key={i}
           cardBody={
@@ -51,8 +51,6 @@ export default async function Home() {
           }
         />
       ))}
-
-      <pre>{process.env.NEXT_PUBLIC_API_URL}</pre>
     </div>
   );
 }
