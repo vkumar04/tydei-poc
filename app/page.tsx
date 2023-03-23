@@ -1,9 +1,10 @@
-import MetricCards from "@/components/HomePage/MetricCards";
+const MetricCards = dynamic(() => import("@/components/HomePage/MetricCards"));
 import {
   ArrowPathIcon,
   CalendarDaysIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
+import dynamic from "next/dynamic";
 
 export default async function Home() {
   return (
