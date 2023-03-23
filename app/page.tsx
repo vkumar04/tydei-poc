@@ -1,4 +1,6 @@
-const MetricCards = dynamic(() => import("@/components/HomePage/MetricCards"));
+const MetricCards = dynamic(() => import("@/components/HomePage/MetricCards"), {
+  ssr: false,
+});
 import {
   ArrowPathIcon,
   CalendarDaysIcon,
@@ -8,7 +10,7 @@ import dynamic from "next/dynamic";
 
 export default async function Home() {
   return (
-    <div className="grid max-w-full grid-cols-3 gap-4 p-4">
+    <div className="grid min-w-full grid-cols-3 gap-4 p-4">
       <div className="col-span-3">
         <h2 className="text-7xl font-thin">
           Welcome back, <span className="font-semibold">FirstHealth</span>
