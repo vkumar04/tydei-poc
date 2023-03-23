@@ -18,13 +18,13 @@ export default function Header() {
         <Link href="/" className="link-hover link">
           Home
         </Link>
-        <Link href="/" className="link-hover link">
+        <Link href="/procedure" className="link-hover link">
           Procedure
         </Link>
-        <Link href="/" className="link-hover link">
+        <Link href="/inventory" className="link-hover link">
           Inventory
         </Link>
-        <Link href="/" className="link-hover link">
+        <Link href="/financial" className="link-hover link">
           Financial
         </Link>
       </div>
