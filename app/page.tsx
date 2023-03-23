@@ -8,15 +8,9 @@ import {
   CalendarDaysIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
-
-async function getData() {
-  const res = await fetch(`${process.env.API_URL}/api/home`);
-  return res.json();
-}
+import { homepageData } from "./consts/homepageData";
 
 export default async function Home() {
-  const data = await getData();
-  const { homepageData } = data;
   return (
     <div className="grid max-w-full grid-cols-3 gap-4 p-4">
       <div className="col-span-3">
