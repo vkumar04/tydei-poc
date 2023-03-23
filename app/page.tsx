@@ -1,14 +1,9 @@
-import Card from "@/components/card/Card";
-import CardActions from "@/components/card/CardActions";
-import CardContent from "@/components/card/CardContent";
-import CardMetric from "@/components/card/CardMetric";
-import CardTitle from "@/components/card/CardTitle";
+import MetricCards from "@/components/HomePage/MetricCards";
 import {
   ArrowPathIcon,
   CalendarDaysIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
-import { homepageData } from "./consts/homepageData";
 
 export default async function Home() {
   return (
@@ -32,19 +27,7 @@ export default async function Home() {
           <span className="font-semibold">6 Hour(s) ago</span>
         </p>
       </div>
-      {homepageData.map((item: any, i: number) => (
-        <Card
-          key={i}
-          cardBody={
-            <div className="card-body">
-              <CardTitle title={item.title} />
-              <CardContent content={item.content} />
-              <CardMetric title={item.metric.title} value={item.metric.value} />
-              <CardActions data={item.subValues} />
-            </div>
-          }
-        />
-      ))}
+      <MetricCards />
     </div>
   );
 }
